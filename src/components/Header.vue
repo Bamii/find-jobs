@@ -3,7 +3,7 @@
     <div class="container container-pad mx-auto flex items-center justify-between">
       <!-- Logo Container -->
       <div class="flex-1">
-        <img class="h-6" alt="Find Work logo." src="../assets/logo.svg">
+        <img class="h-6" alt="Find Work logo." :src="require('../assets/logo.svg')">
       </div>
 
       <!-- Nav? -->
