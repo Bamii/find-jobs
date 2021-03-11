@@ -11,7 +11,11 @@
         <div class="hidden md:block text-white">Jobs</div>
         <div class="hidden md:block text-white">Company Review</div>
         <div class="hidden md:block text-white">Find Salaries</div>
-        <div class="text-blue btn bg-white">Post Job</div>
+        <a class="text-current" href="/login">
+          <div class="border-2 border-white text-blue btn bg-white hover:bg-blue hover:text-white">
+              Post Job
+          </div>
+        </a>
       </div>
     </div>
   </div>

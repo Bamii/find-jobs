@@ -1,19 +1,17 @@
 <template>
-  <div class="p-8 pb-6 shadow-lg rounded-md">
-    <div class="flex flex-col lg:flex-row lg:space-x-10 text-blue justify-between text-xl font-semibold">
+  <div :class="[inverse ? 'text-white bg-blue' : 'text-blue bg-white']" class="p-8 pb-6 shadow-lg rounded-md">
+    <div  class="flex flex-col lg:flex-row lg:space-x-10 justify-between text-2xl font-semibold">
       <div>{{ item.title }}</div>
-      <div class="font-normal">{{ item.salary }}</div>
+      <div class="text-xl font-normal">{{ item.salary }}</div>
     </div>
     <div class="pt-1 font-light">{{ item.location }}</div>
-    <div class="py-3 text-sm md:text-base">
+    <div class="pt-4 pb-3 text-sm md:text-base">
       {{ item.description }}
     </div>
     <div class="flex justify-end">
-      <input
-        type="button"
-        value="See More"
-        class="btn bg-red-light text-sm text-white font-light"
-      >
+      <button @click="selectJob" class="btn btn-red text-sm font-light">
+        See More
+      </button>
     </div>
   </div>
 </template>
@@ -21,7 +19,7 @@
 <script>
 export default {
   name: "ListingCard",
-  props: ['item'],
+  props: ['item', 'inverse', 'selectJob'],
 
 }
 </script>

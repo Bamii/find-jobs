@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Admin from '../views/Admin.vue'
 import Login from '../views/Login.vue'
+import { checkUserLoggedIn } from '../utils'
 
 const routes = [
   {
@@ -17,7 +18,8 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: Admin,
     beforeEnter: (to, from, next) => {
-      const isAuthenticated = true;
+      const isAuthenticated = checkUserLoggedIn(window.localStorage);
+      
       if(!isAuthenticated) {
         next({ name: 'Login' })
         return

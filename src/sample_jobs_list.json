@@ -13,5 +13,20 @@
       "work_condition": "Remote",
       "created_at": "2021-03-09T21:52:20+00:00",
       "updated_at": "2021-03-09T21:52:20+00:00"
+  },
+  {
+      "id": "FJB-212818-MS",
+      "title": "Frontend Developer Needed",
+      "company": "Tedbree",
+      "company_logo": null,
+      "location": "Lagos",
+      "category": "Tech",
+      "salary": "N150,000 per Month",
+      "description": "Description Frontend Developer Needed",
+      "benefits": "Free Meal",
+      "type": "Permanent",
+      "work_condition": "Remote",
+      "created_at": "2021-03-09T21:52:20+00:00",
+      "updated_at": "2021-03-09T21:52:20+00:00"
   }
 ]

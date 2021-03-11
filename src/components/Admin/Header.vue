@@ -1,5 +1,5 @@
 <template>
-  <div class="py-6 bg-blue">
+  <div :class="[transparent ? 'fixed' : 'bg-blue']" class="py-8 w-full">
     <div class="container container-pad mx-auto flex items-center justify-between">
       <!-- Logo Container -->
       <div class="flex-1">
@@ -7,15 +7,31 @@
       </div>
 
       <!-- Nav? -->
-      <div class="flex items-center space-x-5">
-        <img src="../../assets/Avatar.png" alt="User Icon." class="rounded-lg">
+      <div v-show="!transparent" class="relative flex items-center space-x-5">
+        <img @click="avatarClicked = !avatarClicked" src="../../assets/Avatar.png" alt="User Icon." class="cursor-pointer rounded-lg">
+        <div v-show="avatarClicked" @click="signout" class="hover:text-red-light cursor-pointer top-full mt-2 right-0 absolute py-3 px-5 text-lg font-thin bg-white rounded-lg">
+          Signout
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { signoutUser } from '../../utils'
 export default {
-  name: "Header"
+  name: "Header",
+  props: ["transparent"],
+  data() {
+    return {
+      avatarClicked: false
+    }
+  },
+  methods: {
+    signout() {
+      signoutUser(window.localStorage);
+      this.$router.push('login')
+    }
+  }
 }
 </script>

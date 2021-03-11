@@ -21,7 +21,7 @@
 
 
     <!-- apply button -->
-    <input type="button" value="Apply Via Find Jobs" class="btn bg-blue text-white font-light my-5">
+    <input @click="apply" type="button" value="Apply Via Find Jobs" class="btn btn-blue font-light my-5">
     
     <!-- details section -->
     <job-description-section
@@ -42,7 +42,7 @@ import JobDescriptionSection from '@/components/JobDescriptionSection.vue'
 
 export default {
   name: "JobDetails",
-  props:  ["job"],
+  props:  ["job", "apply"],
   components: {
     JobDescriptionSection
   }

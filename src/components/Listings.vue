@@ -1,7 +1,11 @@
 <template>
   <div class="space-y-5">
     <div v-for="(item, index) in itemList" :key="item" class="">
-      <ListingCard :item="item" />
+      <ListingCard
+        :selectJob="() => selectJob(index)"
+        :inverse="index === selected_job"
+        :item="item"
+      />
     </div>
   </div>
 </template>
@@ -12,6 +16,6 @@
   export default {
     components: { ListingCard },
     name: "Listings",
-    props: ['item-list']
+    props: ['item-list', 'selected_job', "selectJob"]
   }
 </script>
