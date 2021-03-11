@@ -2,7 +2,7 @@
   <div class="bg-blue">
     <div class="mt-10 py-8 container mx-auto container-pad flex justify-between flex-col space-y-5 md:flex-row md:space-y-0 md:space-x-5">      
       <div class="flex-1 space-y-2">
-        <img class="h-6" alt="Find Work logo." :src="require('/assets/logo.svg')">
+        <img class="h-6" alt="Find Work logo." :src="require('../assets/logo.svg')">
         <div class="text-white">
           2021
           <span class="italic text-blue-light">FindJobs</span>
