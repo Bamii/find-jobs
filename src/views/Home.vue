@@ -222,22 +222,23 @@ export default {
     if(this.hasSearched) return
     this.jobs_list = JOB_LIST;
 
-    // axios
-    //   .get(`${JOBS_URL}`, {
-    //     mode: 'no-cors',
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       "Access-Control-Allow-Origin": "*",
-    //     },
-    //   }, { crossDomain: true })
-    //   .then(res => {
-    //     const data = res.data().data;
-    //     // this.jobs_list = data;
-    //   })
-    //   .catch(() => {
-    //   })
-    //   .finally(() => this.hasSearched = true)
-      
+    axios
+      .get(`${JOBS_URL}`, {
+        mode: 'no-cors',
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+      }, { crossDomain: true })
+      .then(res => {
+        const data = res.data().data;
+        console.log(res);
+        // this.jobs_list = data;
+      })
+      .catch((e) => {
+        console.log(e)
+      })
+      .finally(() => this.hasSearched = true)
   },
   methods: {
     setSelectedJob(index) {
