@@ -18,7 +18,9 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: Admin,
     beforeEnter: (to, from, next) => {
-      const isAuthenticated = checkUserLoggedIn(window.localStorage);
+      // uncoment next line to get make the auth functional
+      // const isAuthenticated = checkUserLoggedIn(window.localStorage);
+      const isAuthenticated = true;
       
       if(!isAuthenticated) {
         next({ name: 'Login' })
