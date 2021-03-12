@@ -19,6 +19,10 @@
 
 <script>
 import { signoutUser } from '../../utils'
+const {
+  VUE_APP_LOGOUT_URL: LOGOUT_URL
+} = process.env
+
 export default {
   name: "Header",
   props: ["transparent"],
@@ -29,8 +33,12 @@ export default {
   },
   methods: {
     signout() {
-      signoutUser(window.localStorage);
+      axios
+        .post(LOGOUT_URL)
+        .then(res => {
+                signoutUser(window.localStorage);
       this.$router.push('login')
+        })
     }
   }
 }

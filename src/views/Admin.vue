@@ -174,6 +174,7 @@
   import CustomInput from '@/components/CustomInput.vue'
   import CustomSelect from '@/components/CustomSelect.vue'
   import Notification from '@/components/Notification.vue'
+  import { getUserToken } from '../utils'
   const {
     VUE_APP_ADMIN_JOBS_URL: ADMIN_JOBS_URL
   } = process.env
@@ -189,6 +190,7 @@
     },
     data: function() {
       return {
+        axiosInstance: null,
         job: {
           title: "",
           company: "",
@@ -210,6 +212,15 @@
           message: "sdafadd"
         }
       }
+    },
+    mounted() {
+      const token = getUserToken();
+      this.axiosInstance = axios.create({
+        baseUrl: ADMIN_JOBS_URL,
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      })
     },
     computed: {
       selectedJob: () => {
@@ -279,9 +290,9 @@
         let req;
         
         if(this.selected === null) {
-          req = axios.post(`${ADMIN_JOBS_URL}`, this.job)
+          req = axios.post(`/`, this.job)
         } else {
-          req = axios.patch(`${ADMIN_JOBS_URL}/${this.selectedJob.id}`, this.job)
+          req = axios.patch(`/${this.selectedJob.id}`, this.job)
         }
 
         req.then(({ data }) => {
@@ -296,8 +307,8 @@
       deleteJobEntry() {
         const tbd = this.jobs_list[this.toBeDeleted];
 
-        axios
-          .delete(`${ADMIN_JOBS_URL}/${tbd.id}`)
+        this.axiosInstance
+          .delete(`/${tbd.id}`)
           .then(({ data }) => {
             const success = data.status === 'success';
             if(success) {

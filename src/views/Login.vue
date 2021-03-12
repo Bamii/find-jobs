@@ -43,7 +43,7 @@ import CustomInput from '@/components/CustomInput.vue'
 import { loginUser } from '../utils'
 import axios from 'axios'
 const {
-  VUE_APP_LOGIN: LOGIN_URL
+  VUE_APP_LOGIN_URL: LOGIN_URL
 } = process.env
 
 export default {
